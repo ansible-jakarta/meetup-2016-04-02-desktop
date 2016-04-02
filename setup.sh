@@ -34,7 +34,7 @@ pushd `dirname $0` &>/dev/null
 # git submodule init && git submodule update
 ansible-playbook \
   -c local -i 'localhost,' \
-  --extra-vars="group_role=$GROUP"
+  --extra-vars="group_role=$GROUP" \
   local.yml
 popd &>/dev/null
 
