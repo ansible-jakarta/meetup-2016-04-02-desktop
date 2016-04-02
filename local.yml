@@ -1,0 +1,11 @@
+---
+## file: local.yml
+## to be run from ansible-pull
+## usage: ansible-playbook -c local -i 'localhost,' setup.yml
+
+- hosts: all
+  vars:
+    group_role: "common"
+  roles:
+    - "{{ group_role }}"
+

@@ -1,0 +1,16 @@
+---
+# tasks file for ansible_pull
+
+- block:
+  - name: schedule ansible-pull run
+    cron:
+      cron_file: ansible_pull
+      name: ansible_pull
+      job: "ansible-pull -C master -d /var/lib/ansible/local -U https://github.com/ansible-jakarta/meetup-2016-04-02-desktop -i hosts --accept-host-key -o >>/var/log/ansible-pull.log 2>&1"
+      # minute: 5
+      special_time: reboot
+      user:  root
+      state: present
+  become: true
+  become_user: root
+  become_method: sudo
