@@ -1,0 +1,5 @@
+---
+# file: group_vars/all.yml
+
+apt_cache_valid_time: 3600
+
